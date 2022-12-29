@@ -21,5 +21,3 @@ def create_app() -> None:
     app.add_url_rule('/', endpoint='index')
     
     return app
-
-    #flask --app parking_payment run --debugger

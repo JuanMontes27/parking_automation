@@ -17,16 +17,17 @@ C:\proyecto>cd venv
 C:\proyecto\venv\>cd Scripts
 C:\proyecto\venv\Scripts>activate
 ```
-- Una vez activado el entorno virtual se instalan los requerimientos
-```
-(venv) C:\proyecto\venv\Scripts>pip install -r requirements.txt
-```
 - Volver a la carpeta donde se clono el proyecto:
 ```
 (venv) C:\proyecto\venv\Scripts>cd ..
 (venv) C:\proyecto\venv>cd ..
 (venv) C:\proyecto>
 ```
+- Una vez activado el entorno virtual y estando en la carpeta del proyecto se instalan los requerimientos
+```
+(venv) C:\proyecto>pip install -r requirements.txt
+```
+
 
 ## Ejecutar el programa
 - Se inicializa la base de datos con el siguiente comando:
