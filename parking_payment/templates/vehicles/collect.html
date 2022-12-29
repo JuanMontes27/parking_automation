@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Pago{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h1>Información sobre la placa: {{ info_vehicle['plate_number'] }}</h1>
+<p>Tipo: {{ info_vehicle['vehicle_type'] }} con un precio de ${{ info_vehicle['payment_type'] }} por minuto</p>
+<p>Fecha de ingreso: {{ info_vehicle['date_start'] }}</p>
+<p>Fecha de salida: {{ info_vehicle['date_end'] }}</p>
+<p>Tiempo transcurrido: {{ info_vehicle['parked_time'] }} minutos</p>
+<p>El pago debe de ser: ${{ info_vehicle['payment_parking'] }}</p>
+<form method="post">
+    <input type="submit" value="Aceptar">
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Agregar nuevo tipo de vehiculo{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="new-type">Tipo de vehículo:</label>
+    <input name="new-type" id="new-type" value="{{ request.form['new-type'] }}">
+    <label for="payment">Pago por minuto:</label>
+    <input name="payment" id="payment" value="{{ request.form['payment'] }}">
+    <input type="submit" value="Guardar">
+</form>
+{% endblock %}

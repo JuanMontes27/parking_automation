@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>{% block title %}Vehículos registrados{% endblock %}</h1>
+<button id="save-report" onclick="printReport()">Generar PDF</button>
+{% endblock %}
+
+{% block content %}
+<table>
+    {% if records %}
+    <tr>
+        <td>Núm. placa</td>
+        <td>Tiempo estacionado (min)</td>
+        <td>Tipo de vehículo</td>
+        <td>Cantidad a pagar</td>
+    </tr>
+    {% for record in records %}
+    <tr>
+        <td>{{ record['plate_number'] }}</td>
+        <td>{{ record['payment_parking'] }} min</td>
+        <td>{{ record['vehicle_type'] }}</td>
+        <td>${{ record['payment_parking'] }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <p class="post">Noy hay registros que ya hayan pagado</p>
+    {% endif %}
+</table>
+{% endblock %}

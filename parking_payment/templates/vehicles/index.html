@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block header %}
+<h1>{% block title %}Vehículos actuales{% endblock %}</h1>
+<a class="action" href="{{ url_for('vehicles.vehicles_registration') }}">Historial de registro</a>
+<a class="action" href="{{ url_for('vehicles.create_type') }}">Agregar nuevo tipo de vehículo</a>
+<a class="action" href="{{ url_for('vehicles.create') }}">Agregar nuevo vehículo</a>
+{% endblock %}
+
+{% block content %}
+    {% for vehicle in vehicles %}
+    {% if not vehicle['payment_parking'] and vehicle['payment_parking'] != 0.0 %}
+    <article class="post">
+        <header>
+            <div>
+                <h1>Número de placa: {{ vehicle['plate_number'] }}</h1>
+            </div>
+            <a class="action" href="{{ url_for('vehicles.collect', id=vehicle['id']) }}">Cobrar</a>
+        </header>
+        <p class="body">Tipo: {{ vehicle['vehicle_type'] }}</p>
+        <p class="body">Fecha de ingreso: {{ vehicle['date_start'] }}</p>
+    </article>
+    {% endif %}
+    <!--{% if not loop.last %}
+        <hr>
+    {% endif %}-->
+    {% endfor %}
+{% endblock %}

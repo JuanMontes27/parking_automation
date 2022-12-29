@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Registrar nuevo vehículo{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('vehicles.create') }}" method="post">
+    <label for="plate">Número de placas</label>
+    <input name="plate" id="plate" value="{{ request.form['plate'] }}">
+    <select name="type" id="type">
+        {% for payment in payments%}
+        <option value="{{ payment['id'] }}">{{ payment['vehicle_type'] }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Guardar">
+</form>
+{% endblock %}
